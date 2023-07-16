@@ -1,6 +1,3 @@
-// lineChart.js
-// Chart dimensions
-// Sample data
 async function init() {
     const width = 400;
     const height = 300;
@@ -8,11 +5,12 @@ async function init() {
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     // Retrieve data
-    let data = await d3.csv('https://raw.githubusercontent.com/Akolyte/CS_416_Native_Hawaiian_Population_Narrative_Visualization/main/js/data/1850_1950.csv')
+    const filePath = "main/js/data/1850_1950.csv";
+    let data = await d3.csv(`https://raw.githubusercontent.com/Akolyte/CS_416_Native_Hawaiian_Population_Narrative_Visualization/${filePath}`);
     console.log('Data retrieved successfully:', data);
-    // Parse the data
+    // Parse the data into appropriate types
     data.forEach(d => {
-        d.year = Number(d.year); // Convert year to string
+        d.year = Number(d.year);
         d.native_hawaiian_population = Number(d.native_hawaiian_population);
         d.part_hawaiian_population = Number(d.part_hawaiian_population);
     });
