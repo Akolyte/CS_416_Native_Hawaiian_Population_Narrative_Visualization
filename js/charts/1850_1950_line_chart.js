@@ -61,10 +61,32 @@ async function init() {
     .attr('stroke', 'red')
     .attr('stroke-width', 2);
 
+    svg.append('g')
+        .selectAll('circle')
+        .data(data)
+        .enter()
+        .append('circle')
+            .attr('cx', (d) => margin.left + xScale(d.year))
+            .attr('cy', (d) => margin.top + yScale(d.native_hawaiian_population))
+            .attr('r', 5)
+            .style('fill', 'steelblue')
+            .style('stroke', 'black')
+
+    svg.append('g')
+        .selectAll('circle')
+        .data(data)
+        .enter()
+        .append('circle')
+            .attr('cx', (d) => margin.left + xScale(d.year))
+            .attr('cy', (d) => margin.top + yScale(d.part_hawaiian_population))
+            .attr('r', 5)
+            .style('fill', 'red')
+            .style('stroke', 'black')
+
     // Append X-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickValues([1850,1900,1950]).tickFormat(d3.format('~d')))
+        .call(d3.axisBottom(xScale).tickValues([1850,1875,1900,1925,1950]).tickFormat(d3.format('~d')))
 
     // Append Y-axis
     svg.append('g')

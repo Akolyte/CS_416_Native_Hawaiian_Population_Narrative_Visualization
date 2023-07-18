@@ -5,18 +5,18 @@ async function init() {
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     // Retrieve data
-    const filePath = "main/js/data/pre_1778.csv"
+    const filePath = "main/js/data/1796_1836.csv"
     let data = await d3.csv(`https://raw.githubusercontent.com/Akolyte/CS_416_Native_Hawaiian_Population_Narrative_Visualization/${filePath}`)
     console.log('Data retrieved successfully:', data);
     // Parse the data into appropriate types
     data.forEach(d => {
         d.year = Number(d.year);
-        d.population = Number(d.population);
+        d.population = Number(d.native_hawaiian_population_estimate);
     });
 
     // Create the SVG element
     const svg = d3
-    .select('#native-hawaiian-population-pre-1778')
+    .select('#native-hawaiian-population-1796-1836')
     .append('g')
     .attr('width', width)
     .attr('height', height);
@@ -30,7 +30,7 @@ async function init() {
     // Create a scale for the y-axis
     const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, d => d.population)])
+    .domain([0, 300000])
     .range([chartHeight, 0]);
 
     // Create the line generator
@@ -47,7 +47,6 @@ async function init() {
         .attr('stroke', 'steelblue')
         .attr('stroke-width', 2);
 
-    // Append circle data points
     svg.append('g')
         .selectAll('circle')
         .data(data)
@@ -55,19 +54,19 @@ async function init() {
         .append('circle')
             .attr('cx', (d) => margin.left + xScale(d.year))
             .attr('cy', (d) => margin.top + yScale(d.population))
-            .attr('r', 3)
+            .attr('r', 5)
             .style('fill', 'steelblue')
             .style('stroke', 'black')
 
     // Append X-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickValues([500,700,900,1100,1300,1500, 1778]).tickFormat(d3.format('~d')))
+        .call(d3.axisBottom(xScale).tickValues([1796,1806,1816,1826,1836]).tickFormat(d3.format('~d')))
 
     // Append Y-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${margin.top})`)
-        .call(d3.axisLeft(yScale).tickValues([0,50000,100000,150000,200000,250000,300000,350000]).tickFormat(d3.format('~s')))
+        .call(d3.axisLeft(yScale).tickValues([0,50000,100000,150000,200000,250000,300000]).tickFormat(d3.format('~s')))
 
     // Append x-axis label
     svg.append("text")
