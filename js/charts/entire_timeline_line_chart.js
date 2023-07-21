@@ -1,6 +1,6 @@
-async function init() {
-    const width = 400;
-    const height = 300;
+async function init_entire_timeline(svg_width, svg_height, svg_id='#native-hawaiian-population-entire-timeline') {
+    const width = svg_width;
+    const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -43,7 +43,7 @@ async function init() {
 
     // Create the SVG element
     const svg = d3
-    .select('#native-hawaiian-population-entire-timeline')
+    .select(svg_id)
     .append('g')
     .attr('width', width)
     .attr('height', height);

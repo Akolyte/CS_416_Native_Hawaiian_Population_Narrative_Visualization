@@ -1,6 +1,6 @@
-async function init() {
-    const width = 400;
-    const height = 300;
+async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-population-1850-1950') {
+    const width = svg_width;
+    const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -14,10 +14,23 @@ async function init() {
         d.native_hawaiian_population = Number(d.native_hawaiian_population);
         d.part_hawaiian_population = Number(d.part_hawaiian_population);
     });
-
+    // Delete other svg element
+    const elementToRemove = document.getElementById("native-hawaiian-population-chart");
+    elementToRemove.remove(); 
+    
     // Create the SVG element
+    const parentElement = document.querySelector(".flex-box-charts");
+    const svg_new = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+    // Set attributes for the SVG element
+    svg_new.setAttribute("width", "800");
+    svg_new.setAttribute("height", "700");
+    svg_new.setAttribute("id","native-hawaiian-population-chart-with-legend")
+    parentElement.appendChild(svg_new);
+    
+    // Select the SVG element
     const svg = d3
-    .select('#native-hawaiian-population-1850-1950')
+    .select(svg_id)
     .append('g')
     .attr('width', width)
     .attr('height', height);
@@ -44,6 +57,12 @@ async function init() {
     .line()
     .x(d => margin.left + xScale(d.year))
     .y(d => margin.top + yScale(d.part_hawaiian_population));
+
+    // Define legend
+    const legendData = [
+        { color: "steelblue", label: "Native-Hawaiian" },
+        { color: "red", label: "Part-Hawaiian" }
+      ];
 
     // Append the line path for Native Hawaiians
     svg.append('path')
@@ -110,4 +129,35 @@ async function init() {
     .style("text-anchor", "middle")
     .style("fill", "black")
     .text("Population"); 
+
+    // Create legend
+    const legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", `translate(${margin.left}, ${chartHeight + margin.bottom})`);
+
+    // Create squares for each legend item
+    const squareSize = 20;
+    const squareSpacing = 10;
+
+    const squares = legend.selectAll("rect")
+    .data(legendData)
+    .enter()
+    .append("rect")
+    .attr("x", 0)
+    .attr("y", (d, i) => i * (squareSize + squareSpacing))
+    .attr("width", squareSize)
+    .attr("height", squareSize)
+    .style("fill", d => d.color);
+
+    // Add labels to the legend
+    const labelOffset = 5;
+
+    const labels = legend.selectAll("text")
+    .data(legendData)
+    .enter()
+    .append("text")
+    .attr("x", squareSize + labelOffset)
+    .attr("y", (d, i) => i * (squareSize + squareSpacing) + squareSize / 2)
+    .attr("dy", "0.35em")
+    .text(d => d.label);
 }

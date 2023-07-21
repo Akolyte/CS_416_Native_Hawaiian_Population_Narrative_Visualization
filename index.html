@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="js/packages/d3-annotation.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script src="js/main.js"></script>
+<script src="js/charts/1796_1836_line_chart.js"></script>
+<script src="js/charts/1850_1950_line_chart.js"></script>
+<script src="js/charts/1960_2020_line_chart.js"></script>
+<script src="js/charts/entire_timeline_line_chart.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Hawaiian Population NVP</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="flex-box">
+    <ul class="navbar">
+        <li><a onclick="clearChart(svg_id);init_pre_1778(svg_width,svg_height,svg_id);">Pre-1778</a></li>
+        <li><a onclick="clearChart(svg_id);init_1796_1836(svg_width,svg_height,svg_id)">1796-1836</a></li>
+        <li><a onclick="clearChart(svg_id);init_1850_1950(svg_width,svg_height,svg_id_with_legend)">1850-1950</a></li>
+        <li><a onclick="clearChart(svg_id);init_1960_2020(svg_width,svg_height,svg_id)">1960-2020</a></li>
+        <li><a onclick="clearChart(svg_id);init_entire_timeline(svg_width,svg_height,svg_id)">Full-TL</a></li>
+        <li><a onclick="clearChart(svg_id);">Population By County 1960-2020</a></li>
+      </ul>
+  </div>
+  <div class="flex-box-charts">
+    <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,svg_id)"></script>
+    <svg id="native-hawaiian-population-chart" width="800" height="500"></svg>
+  </div>
+</body>
+</html>
