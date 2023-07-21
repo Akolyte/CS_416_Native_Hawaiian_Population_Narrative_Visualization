@@ -17,12 +17,10 @@
     list-style-type: none;
   }
   
-  /* Navbar list items */
   .navbar li {
     display: inline-block;
   }
   
-  /* Navbar links */
   .navbar a {
     display: block;
     color: #fff;
@@ -30,7 +28,6 @@
     padding: 10px 20px;
   }
   
-  /* Navbar link hover */
   .navbar a:hover {
     background-color: #555;
   }
