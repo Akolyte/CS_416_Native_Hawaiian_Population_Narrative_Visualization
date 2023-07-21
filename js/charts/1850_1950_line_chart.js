@@ -14,6 +14,10 @@ async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-po
         d.native_hawaiian_population = Number(d.native_hawaiian_population);
         d.part_hawaiian_population = Number(d.part_hawaiian_population);
     });
+
+    populateDropdown('start-years', data);
+    populateDropdown('end-years', data);
+
     // Delete other svg element
     const elementToRemove = document.getElementById("native-hawaiian-population-chart");
     elementToRemove.remove(); 
@@ -160,4 +164,17 @@ async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-po
     .attr("y", (d, i) => i * (squareSize + squareSpacing) + squareSize / 2)
     .attr("dy", "0.35em")
     .text(d => d.label);
+}
+
+function populateDropdown(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    data.forEach(d => {
+        const option = document.createElement("option");
+        option.value = Number(d.year);
+        option.textContent = d.year;
+        dropdown.appendChild(option);
+    })
 }

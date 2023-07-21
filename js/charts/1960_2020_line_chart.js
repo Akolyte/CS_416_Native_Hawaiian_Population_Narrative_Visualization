@@ -14,6 +14,9 @@ async function init_1960_2020(svg_width, svg_height, svg_id='#native-hawaiian-po
         d.population = Number(d.total_hawaiian_descent_population);
     });
 
+    populateDropdown('start-years', data);
+    populateDropdown('end-years', data);
+
     // Create the SVG element
     const svg = d3
     .select(svg_id)
@@ -85,4 +88,17 @@ async function init_1960_2020(svg_width, svg_height, svg_id='#native-hawaiian-po
     .style("text-anchor", "middle")
     .style("fill", "black")
     .text("Population"); 
+}
+
+function populateDropdown(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    data.forEach(d => {
+        const option = document.createElement("option");
+        option.value = Number(d.year);
+        option.textContent = d.year;
+        dropdown.appendChild(option);
+    })
 }

@@ -1,4 +1,4 @@
-async function init_pre_1778(svg_width, svg_height, svg_id='#native-hawaiian-population-pre-1778') {
+async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=1778, svg_id='#native-hawaiian-population-pre-1778') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
@@ -14,6 +14,9 @@ async function init_pre_1778(svg_width, svg_height, svg_id='#native-hawaiian-pop
         d.population = Number(d.population);
     });
 
+    populateDropdown('start-years', data);
+    populateDropdown('end-years', data);
+
     // Create the SVG element
     const svg = d3
     .select(svg_id)
@@ -24,7 +27,7 @@ async function init_pre_1778(svg_width, svg_height, svg_id='#native-hawaiian-pop
     // Create a scale for the x-axis
     const xScale = d3
     .scaleLinear()
-    .domain(d3.extent(data, d => d.year))
+    .domain([start_year, end_year])
     .range([0, chartWidth])
 
     // Create a scale for the y-axis
@@ -86,4 +89,17 @@ async function init_pre_1778(svg_width, svg_height, svg_id='#native-hawaiian-pop
     .style("text-anchor", "middle")
     .style("fill", "black")
     .text("Population"); 
+}
+
+function populateDropdown(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    data.forEach(d => {
+        const option = document.createElement("option");
+        option.value = Number(d.year);
+        option.textContent = d.year;
+        dropdown.appendChild(option);
+    })
 }
