@@ -71,7 +71,7 @@ async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=177
             .attr('r', 3)
             .style('fill', 'steelblue')
             .style('stroke', 'black')
-            .on("mouseover", (d,i) => {
+            .on("mouseover", (d) => {
                 // Show the tooltip on mouseover
                 const tooltip = svg.append("g")
                 .attr("class", "tooltip")

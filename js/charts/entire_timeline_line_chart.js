@@ -99,6 +99,24 @@ async function init_entire_timeline(svg_width, svg_height, start_year=1778, end_
             .attr('r', 3)
             .style('fill', 'steelblue')
             .style('stroke', 'black')
+            .on("mouseover", (d) => {
+                // Show the tooltip on mouseover
+                const tooltip = svg.append("g")
+                .attr("class", "tooltip")
+                .attr("transform", "translate(" + (xScale(d.year) + 10) + "," + (yScale(d.population) - 20) + ")");
+
+                tooltip.append("text")
+                    .attr("y", 15)
+                    .text("Year: " + d.year);
+
+                tooltip.append("text")
+                    .attr("y", 30)
+                    .text("Population: " + d.population);
+            })
+            .on("mouseout", (d,i) => {
+                // Remove the tooltip on mouseout
+                svg.select(".tooltip").remove();
+            })
 
     // Append X-axis
     svg.append('g')
