@@ -25,7 +25,6 @@ function clearChart(svg_id) {
 function selectStartYear() {
     const selectedStartYear = document.getElementById("start-years").value;
     if (selectedStartYear) {
-        alert("You selected year: " + selectedStartYear);
         start_year = selectedStartYear;
     }
 }
@@ -33,7 +32,6 @@ function selectStartYear() {
 function selectEndYear() {
     const selectedEndYear = document.getElementById("end-years").value;
     if (selectedEndYear) {
-        alert("You selected year: " + selectedEndYear);
         end_year = selectedEndYear;
     }
 }
