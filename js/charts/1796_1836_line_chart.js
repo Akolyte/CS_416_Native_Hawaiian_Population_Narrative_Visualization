@@ -1,20 +1,28 @@
-async function init_1796_1836(svg_width, svg_height, populate_flag, start_year=1796, end_year=1836, svg_id='#native-hawaiian-population-1796-1836') {
+async function init_1796_1836(svg_width, svg_height, start_year=1796, end_year=1836, svg_id='#native-hawaiian-population-1796-1836') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
+    const default_start_year = 1796;
+    const default_end_year = 1836;
     // Retrieve data
     const filePath = "main/js/data/1796_1836.csv"
     let data = await d3.csv(`https://raw.githubusercontent.com/Akolyte/CS_416_Native_Hawaiian_Population_Narrative_Visualization/${filePath}`)
-    console.log('Data retrieved successfully:', data);
     // Parse the data into appropriate types
+    data = data.filter(d => Number(d.year) >= start_year).filter(d => Number(d.year) <= end_year);
     data.forEach(d => {
         d.year = Number(d.year);
         d.population = Number(d.native_hawaiian_population_estimate);
     });
 
-    if (populate_flag) {
+    if (start_year !== default_start_year && end_year !== default_end_year) {
+        console.log("Please reset chart!")
+    } else if (end_year !== default_end_year) {
+        populateDropdown('start-years', data);
+    } else if (start_year !== default_start_year) {
+        populateDropdown('end-years', data);
+    } else {
         populateDropdown('start-years', data);
         populateDropdown('end-years', data);
     }
@@ -94,13 +102,17 @@ async function init_1796_1836(svg_width, svg_height, populate_flag, start_year=1
 
 function populateDropdown(dropDownId, data) {
     const dropdown = document.getElementById(dropDownId)
-
     dropdown.innerHTML = '<option value="">-- Select Year --</option>'
 
+    const minValue = d3.min(data, d => +d.year);
+    const maxValue = d3.max(data, d => +d.year);
+
     data.forEach(d => {
-        const option = document.createElement("option");
-        option.value = Number(d.year);
-        option.textContent = d.year;
-        dropdown.appendChild(option);
+        if (d.year < maxValue && d.year > minValue) {
+            const option = document.createElement("option");
+            option.value = Number(d.year);
+            option.textContent = d.year;
+            dropdown.appendChild(option);
+        }
     })
 }
