@@ -71,16 +71,34 @@ async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=177
             .attr('r', 3)
             .style('fill', 'steelblue')
             .style('stroke', 'black')
+            .on("mouseover", (d,i) => {
+                // Show the tooltip on mouseover
+                const tooltip = svg.append("g")
+                .attr("class", "tooltip")
+                .attr("transform", "translate(" + (xScale(d.year) + 10) + "," + (yScale(d.population) - 20) + ")");
+
+                tooltip.append("text")
+                    .attr("y", 15)
+                    .text("Year: " + d.year);
+
+                tooltip.append("text")
+                    .attr("y", 30)
+                    .text("Population: " + d.population);
+            })
+            .on("mouseout", (d,i) => {
+                // Remove the tooltip on mouseout
+                svg.select(".tooltip").remove();
+            })
 
     // Append X-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickValues([500,700,900,1100,1300,1500, 1778]).tickFormat(d3.format('~d')))
+        .call(d3.axisBottom(xScale).tickFormat(d3.format('~d')))
 
     // Append Y-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${margin.top})`)
-        .call(d3.axisLeft(yScale).tickValues([0,50000,100000,150000,200000,250000,300000,350000]).tickFormat(d3.format('~s')))
+        .call(d3.axisLeft(yScale).tickFormat(d3.format('~s')))
 
     // Append x-axis label
     svg.append("text")

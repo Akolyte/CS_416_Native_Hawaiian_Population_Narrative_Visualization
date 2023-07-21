@@ -103,12 +103,12 @@ async function init_entire_timeline(svg_width, svg_height, start_year=1778, end_
     // Append X-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickValues([1778,1800,1850,1900,1950,2000,2020]).tickFormat(d3.format('~d')))
+        .call(d3.axisBottom(xScale).tickFormat(d3.format('~d')))
 
     // Append Y-axis
     svg.append('g')
         .attr("transform",`translate(${margin.left}, ${margin.top})`)
-        .call(d3.axisLeft(yScale).tickValues([0,50000,100000,150000,200000,250000,300000,350000,400000]).tickFormat(d3.format('~s')))
+        .call(d3.axisLeft(yScale).tickFormat(d3.format('~s')))
 
     // Append x-axis label
     svg.append("text")
