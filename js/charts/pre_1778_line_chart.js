@@ -1,4 +1,4 @@
-async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=1778, svg_id='#native-hawaiian-population-pre-1778') {
+async function init_pre_1778(svg_width, svg_height, populate_flag, start_year=500, end_year=1778, svg_id='#native-hawaiian-population-pre-1778') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
@@ -14,8 +14,10 @@ async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=177
         d.population = Number(d.population);
     });
 
-    populateDropdown('start-years', data);
-    populateDropdown('end-years', data);
+    if (populate_flag) {
+        populateDropdown('start-years', data);
+        populateDropdown('end-years', data);
+    }
 
     // Create the SVG element
     const svg = d3

@@ -1,4 +1,4 @@
-async function init_1960_2020(svg_width, svg_height, svg_id='#native-hawaiian-population-1960-2020') {
+async function init_1960_2020(svg_width, svg_height, populate_flag, start_year=1960, end_year=2020, svg_id='#native-hawaiian-population-1960-2020') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
@@ -14,8 +14,10 @@ async function init_1960_2020(svg_width, svg_height, svg_id='#native-hawaiian-po
         d.population = Number(d.total_hawaiian_descent_population);
     });
 
-    populateDropdown('start-years', data);
-    populateDropdown('end-years', data);
+    if (populate_flag) {
+        populateDropdown('start-years', data);
+        populateDropdown('end-years', data);
+    }
 
     // Create the SVG element
     const svg = d3
@@ -27,7 +29,7 @@ async function init_1960_2020(svg_width, svg_height, svg_id='#native-hawaiian-po
     // Create a scale for the x-axis
     const xScale = d3
     .scaleLinear()
-    .domain(d3.extent(data, d => d.year))
+    .domain([start_year, end_year])
     .range([0, chartWidth])
 
     // Create a scale for the y-axis

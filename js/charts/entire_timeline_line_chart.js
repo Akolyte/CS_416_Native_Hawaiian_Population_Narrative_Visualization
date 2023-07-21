@@ -1,4 +1,4 @@
-async function init_entire_timeline(svg_width, svg_height, svg_id='#native-hawaiian-population-entire-timeline') {
+async function init_entire_timeline(svg_width, svg_height, populate_flag, start_year=1778, end_year=2020, svg_id='#native-hawaiian-population-entire-timeline') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
@@ -41,8 +41,10 @@ async function init_entire_timeline(svg_width, svg_height, svg_id='#native-hawai
     data = data.concat(data3)
     data = data.concat(data4)
 
-    populateDropdown('start-years', data);
-    populateDropdown('end-years', data);
+    if (populate_flag) {
+        populateDropdown('start-years', data);
+        populateDropdown('end-years', data);
+    }
 
     // Create the SVG element
     const svg = d3
@@ -54,7 +56,7 @@ async function init_entire_timeline(svg_width, svg_height, svg_id='#native-hawai
     // Create a scale for the x-axis
     const xScale = d3
     .scaleLinear()
-    .domain([1778,2020])
+    .domain([start_year, end_year])
     .range([0, chartWidth])
 
     // Create a scale for the y-axis

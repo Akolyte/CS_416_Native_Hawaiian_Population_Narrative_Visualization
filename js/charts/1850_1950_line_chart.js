@@ -1,4 +1,4 @@
-async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-population-1850-1950') {
+async function init_1850_1950(svg_width, svg_height, populate_flag, start_year=1850, end_year=1950, svg_id='#native-hawaiian-population-1850-1950') {
     const width = svg_width;
     const height = svg_height;
     const margin = { top: 20, right: 20, bottom: 40, left: 60 };
@@ -15,8 +15,10 @@ async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-po
         d.part_hawaiian_population = Number(d.part_hawaiian_population);
     });
 
-    populateDropdown('start-years', data);
-    populateDropdown('end-years', data);
+    if (populate_flag) {
+        populateDropdown('start-years', data);
+        populateDropdown('end-years', data);
+    }
 
     // Delete other svg element
     const elementToRemove = document.getElementById("native-hawaiian-population-chart");
@@ -42,7 +44,7 @@ async function init_1850_1950(svg_width, svg_height, svg_id='#native-hawaiian-po
     // Create a scale for the x-axis
     const xScale = d3
     .scaleLinear()
-    .domain(d3.extent(data, d => d.year))
+    .domain([start_year, end_year])
     .range([0, chartWidth])
 
     // Create a scale for the y-axis

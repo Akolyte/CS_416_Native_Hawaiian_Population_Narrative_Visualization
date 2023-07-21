@@ -3,7 +3,7 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="js/packages/d3-annotation.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
-<script type="module" src="https://raw.githubusercontent.com/Akolyte/CS_416_Native_Hawaiian_Population_Narrative_Visualization/main/js/main.js"></script>
+<script src="js/main.js"></script>
 <script src="js/charts/1796_1836_line_chart.js"></script>
 <script src="js/charts/1850_1950_line_chart.js"></script>
 <script src="js/charts/1960_2020_line_chart.js"></script>
@@ -17,26 +17,26 @@
 <body>
   <div class="flex-box">
     <ul class="navbar">
-        <li><a onclick="clearChart(svg_id);init_pre_1778(svg_width,svg_height,500,1778,svg_id);">1. Pre-1778</a></li>
-        <li><a onclick="clearChart(svg_id);init_1796_1836(svg_width,svg_height,svg_id)">2. 1796-1836</a></li>
-        <li><a onclick="clearChart(svg_id);init_1850_1950(svg_width,svg_height,svg_id_with_legend)">3. 1850-1950</a></li>
-        <li><a onclick="clearChart(svg_id);init_1960_2020(svg_width,svg_height,svg_id)">4. 1960-2020</a></li>
-        <li><a onclick="clearChart(svg_id);init_entire_timeline(svg_width,svg_height,svg_id)">5. Full Timeline</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_pre_1778(svg_width,svg_height,true,undefined,undefined,svg_id);current_chart='pre_1778';">1. Pre-1778</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1796_1836(svg_width,svg_height,true,undefined,undefined,svg_id);current_chart='1796_1836';">2. 1796-1836</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1850_1950(svg_width,svg_height,true,undefined,undefined,svg_id_with_legend_hash);current_chart='1850_1950';">3. 1850-1950</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1960_2020(svg_width,svg_height,true,undefined,undefined,svg_id);current_chart='1960_2020';">4. 1960-2020</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_entire_timeline(svg_width,svg_height,true,undefined,undefined,svg_id);current_chart='full';">5. Full Timeline</a></li>
       </ul>
   </div>
   <br>
   <div class="flex-box">
     <label>Start Year&nbsp;</label>
-    <select id="start-years" onchange="selectStartYear();clearChart(svg_id);initChart(start_year, end_year, svg_id);">
+    <select id="start-years" onchange="selectStartYear();clearChart(svg_id);initChart(start_year, end_year, current_chart);">
       <option value="">-- Select Year --</option>
     </select>&nbsp;
     <label>End Year&nbsp;</label>
-    <select id="end-years" onchange="selectEndYear();clearChart(svg_id);initChart(start_year, end_year, svg_id);">
+    <select id="end-years" onchange="selectEndYear();clearChart(svg_id);initChart(start_year, end_year, current_chart);">
       <option value="">-- Select Year --</option>
     </select>
   </div>
   <div class="flex-box-charts">
-    <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,500,1778,svg_id)"></script>
+    <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,true,undefined,undefined,svg_id)"></script>
     <svg id="native-hawaiian-population-chart" width="800" height="500"></svg>
   </div>
 </body>
