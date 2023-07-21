@@ -18,3 +18,5 @@ function clearChart(svg_id) {
         parentElement.appendChild(svg_new);
     }
 }
+
+// TODO Add function selectYear that extracts year and plugs it into our charts. 

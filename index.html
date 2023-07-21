@@ -24,6 +24,17 @@
         <li><a onclick="clearChart(svg_id);init_entire_timeline(svg_width,svg_height,svg_id)">5. Full Timeline</a></li>
       </ul>
   </div>
+  <br>
+  <div class="flex-box">
+    <label>Start Year&nbsp;</label>
+    <select id="years" onchange="selectYear();clearChart(svg_id);">
+      <option value="">-- Select Year --</option>
+    </select>&nbsp;
+    <label>End Year&nbsp;</label>
+    <select id="years" onchange="selectYear();clearChart(svg_id);">
+      <option value="">-- Select Year --</option>
+    </select>
+  </div>
   <div class="flex-box-charts">
     <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,svg_id)"></script>
     <svg id="native-hawaiian-population-chart" width="800" height="500"></svg>
