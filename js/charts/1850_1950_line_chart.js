@@ -20,12 +20,12 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
     if (start_year !== default_start_year && end_year !== default_end_year) {
         console.log("Please reset chart!")
     } else if (end_year !== default_end_year) {
-        populateDropdown('start-years', data);
+        populateDropdownFilterEnd('start-years', data);
     } else if (start_year !== default_start_year) {
-        populateDropdown('end-years', data);
+        populateDropdownFilterStart('end-years', data);
     } else {
-        populateDropdown('start-years', data);
-        populateDropdown('end-years', data);
+        populateDropdownFull('start-years', data);
+        populateDropdownFull('end-years', data);
     }
 
     // Delete other svg element
@@ -210,21 +210,4 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
     .attr("y", (d, i) => i * (squareSize + squareSpacing) + squareSize / 2)
     .attr("dy", "0.35em")
     .text(d => d.label);
-}
-
-function populateDropdown(dropDownId, data) {
-    const dropdown = document.getElementById(dropDownId)
-    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
-
-    const minValue = d3.min(data, d => +d.year);
-    const maxValue = d3.max(data, d => +d.year);
-
-    data.forEach(d => {
-        if (d.year < maxValue && d.year > minValue) {
-            const option = document.createElement("option");
-            option.value = Number(d.year);
-            option.textContent = d.year;
-            dropdown.appendChild(option);
-        }
-    })
 }

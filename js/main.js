@@ -73,3 +73,54 @@ function clearYears() {
     start_year = undefined;
     end_year = undefined;
 }
+
+function populateDropdownFull(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    const minValue = d3.min(data, d => +d.year);
+    const maxValue = d3.max(data, d => +d.year);
+
+    data.forEach(d => {
+        if (d.year <= maxValue && d.year >= minValue) {
+            const option = document.createElement("option");
+            option.value = Number(d.year);
+            option.textContent = d.year;
+            dropdown.appendChild(option);
+        }
+    })
+}
+
+function populateDropdownFilterStart(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    const minValue = d3.min(data, d => +d.year);
+    const maxValue = d3.max(data, d => +d.year);
+
+    data.forEach(d => {
+        if (d.year <= maxValue && d.year > minValue) {
+            const option = document.createElement("option");
+            option.value = Number(d.year);
+            option.textContent = d.year;
+            dropdown.appendChild(option);
+        }
+    })
+}
+
+function populateDropdownFilterEnd(dropDownId, data) {
+    const dropdown = document.getElementById(dropDownId)
+    dropdown.innerHTML = '<option value="">-- Select Year --</option>'
+
+    const minValue = d3.min(data, d => +d.year);
+    const maxValue = d3.max(data, d => +d.year);
+
+    data.forEach(d => {
+        if (d.year < maxValue && d.year >= minValue) {
+            const option = document.createElement("option");
+            option.value = Number(d.year);
+            option.textContent = d.year;
+            dropdown.appendChild(option);
+        }
+    })
+}
