@@ -21,11 +21,11 @@
   </div>
   <div class="flex-box">
     <ul class="navbar">
-        <li><a onclick="clearChart(svg_id);clearYears();init_pre_1778(svg_width,svg_height,undefined,undefined,svg_id);current_chart='pre_1778';loadH2Element(chart_title_pre_1778);">1. Pre-1778</a></li>
-        <li><a onclick="clearChart(svg_id);clearYears();init_1796_1836(svg_width,svg_height,undefined,undefined,svg_id);current_chart='1796_1836';loadH2Element(chart_title_1796_1836);">2. 1796-1836</a></li>
-        <li><a onclick="clearChart(svg_id);clearYears();init_1850_1950(svg_width,svg_height,undefined,undefined,svg_id_with_legend_hash);current_chart='1850_1950';loadH2Element(chart_title_1850_1950);">3. 1850-1950</a></li>
-        <li><a onclick="clearChart(svg_id);clearYears();init_1960_2020(svg_width,svg_height,undefined,undefined,svg_id);current_chart='1960_2020';loadH2Element(chart_title_1960_2020);">4. 1960-2020</a></li>
-        <li><a onclick="clearChart(svg_id);clearYears();init_entire_timeline(svg_width,svg_height,undefined,undefined,svg_id);current_chart='full';loadH2Element(chart_title_full);">5. Full Recorded Timeline</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_pre_1778(svg_width,svg_height,undefined,undefined,svg_id);current_chart='pre_1778';loadH2Element(chart_title_pre_1778);loadPElement(chart_paragraph_pre_1778);">1. Pre-1778</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1796_1836(svg_width,svg_height,undefined,undefined,svg_id);current_chart='1796_1836';loadH2Element(chart_title_1796_1836);loadPElement(chart_paragraph_1796_1836);">2. 1796-1836</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1850_1950(svg_width,svg_height,undefined,undefined,svg_id_with_legend_hash);current_chart='1850_1950';loadH2Element(chart_title_1850_1950);loadPElement(chart_paragraph_1850_1950);">3. 1850-1950</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_1960_2020(svg_width,svg_height,undefined,undefined,svg_id);current_chart='1960_2020';loadH2Element(chart_title_1960_2020);loadPElement(chart_paragraph_1960_2020);">4. 1960-2020</a></li>
+        <li><a onclick="clearChart(svg_id);clearYears();init_entire_timeline(svg_width,svg_height,undefined,undefined,svg_id);current_chart='full';loadH2Element(chart_title_full);loadPElement(chart_paragraph_full);">5. Full Recorded Timeline</a></li>
       </ul>
   </div>
   <br>
@@ -44,14 +44,13 @@
     <h2 id="chart-text"></h2>
   </div>
   <div class="flex-box-charts">
-    <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,undefined,undefined,svg_id);loadH2Element(chart_title_pre_1778);"></script>
     <svg id="native-hawaiian-population-chart" width="800" height="500"></svg>
   </div>
   <br>
   <hr>
-  <br>
   <div class="flex-box">
     <p id="chart-paragraph"></p>
   </div>
+  <script src="js/charts/pre_1778_line_chart.js" onload="init_pre_1778(svg_width,svg_height,undefined,undefined,svg_id);loadH2Element(chart_title_pre_1778);loadPElement(chart_paragraph_pre_1778);"></script>
 </body>
 </html>

@@ -62,6 +62,13 @@ function loadH2Element(text) {
     }
 }
 
+function loadPElement(text) {
+    const pElement = document.getElementById("chart-paragraph");
+    if (pElement) {
+        pElement.textContent = text;
+    }
+}
+
 function clearYears() {
     start_year = undefined;
     end_year = undefined;

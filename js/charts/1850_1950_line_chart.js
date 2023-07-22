@@ -38,7 +38,7 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
 
     // Set attributes for the SVG element
     svg_new.setAttribute("width", "800");
-    svg_new.setAttribute("height", "700");
+    svg_new.setAttribute("height", "530");
     svg_new.setAttribute("id","native-hawaiian-population-chart-with-legend")
     parentElement.appendChild(svg_new);
     
