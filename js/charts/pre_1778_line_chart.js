@@ -1,7 +1,7 @@
 async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=1778, svg_id='#native-hawaiian-population-pre-1778') {
     const width = svg_width;
     const height = svg_height;
-    const margin = { top: 80, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     const default_start_year = 500;
@@ -116,16 +116,7 @@ async function init_pre_1778(svg_width, svg_height, start_year=500, end_year=177
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("fill", "black")
-    .text("Population"); 
-
-    // Add title to the chart
-    // TODO Add titles to every chart
-    svg.append("text")
-      .attr("x", (width + margin.left + margin.right) / 2)
-      .attr("y", margin.top / 2)
-      .attr("text-anchor", "middle")
-      .style("font-size", "28px")
-      .text("Population estimates prior to 1778");
+    .text("Population");
 }
 
 function populateDropdown(dropDownId, data) {

@@ -3,6 +3,11 @@ const svg_id_with_legend = 'native-hawaiian-population-chart-with-legend';
 const svg_id_with_legend_hash = '#native-hawaiian-population-chart-with-legend';
 const svg_width = 800;
 const svg_height = 500;
+const chart_title_pre_1778 = "Population estimates prior to 1778";
+const chart_title_1796_1836 = "Recorded Population 1796 - 1836";
+const chart_title_1850_1950 = "Recorded Population 1850 - 1950";
+const chart_title_1960_2020 = "U.S. Population Census Data 1960 - 2020";
+const chart_title_full = "Recorded Population Data Full Timeline";
 var start_year;
 var end_year;
 var current_chart = 'pre_1778';
@@ -47,6 +52,13 @@ function initChart(startYear, endYear, currentChart) {
         init_1960_2020(svg_width, svg_height, startYear, endYear, svg_id)
     } else if (currentChart === 'full') {
         init_entire_timeline(svg_width, svg_height, startYear, endYear, svg_id)
+    }
+}
+
+function loadH2Element(text) {
+    const h2Element = document.getElementById("chart-text");
+    if (h2Element) {
+        h2Element.textContent = text;
     }
 }
 
