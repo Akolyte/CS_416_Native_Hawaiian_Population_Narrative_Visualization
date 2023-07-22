@@ -5,7 +5,7 @@ const svg_width = 800;
 const svg_height = 500;
 const chart_title_pre_1778 = "Population estimates prior to 1778";
 const chart_title_1796_1836 = "Recorded Population 1796 - 1836";
-const chart_title_1850_1950 = "Recorded Population 1850 - 1950";
+const chart_title_1850_1950 = "Hawaiian/U.S. Population Census Data 1850 - 1950";
 const chart_title_1960_2020 = "U.S. Population Census Data 1960 - 2020";
 const chart_title_full = "Recorded Population Data Full Timeline";
 var start_year;

@@ -1,8 +1,13 @@
-const chart_paragraph_pre_1778 = "testing testing";
+const chart_paragraph_pre_1778 = "\"In this (visualization) the term Native Hawaiian is defined as any individual who is a descendant of the aboriginal people who, prior to 1778, occupied and exercised sovereignty in the area that now constitutes the State of Hawai'i."
++ "To estimate the population every 100 years between 500 A.D. to 1778, the data was calculated assuming a crude birth rate of 45 births and a death rate of 38.7 per 1,000 people per year (0.63% growth rate per year). Starting with 100 persons with 25 immigrants annually for 1,000 years, the population doubles every 110 years. The estimated population in 1778 was 300,000 according to this model.\" (Office of Hawaiian Affairs, Research Division, Demography. (2017). Native Hawaiian Population Enumerations in Hawaiʻi. Honolulu, HI.)";
 
-const chart_paragraph_1796_1836 = "testing 1";
+const chart_paragraph_1796_1836 = "\"It is reported that a census of Wainiha Valley, Kaua'i occurred between 1790–1821 with a count of 2,000 including 65 menehunes who may have been descendants of the Marquesans (Schmitt, 2003). From 1796–1819, a few population estimates were reported as depicted in the (visualization). Using 300,000 as the population in 1778, the population decreased a little more than 50% by 1820. For historical context, during this time period"
++ "there were governance, health, and economic changes that resulted from foreign contact that may have impacted population estimates. Kamehameha I ruled the Kingdom of Hawai'i from 1810, when ali‘i Kaumuali'i of Kaua'i and Ni'ihau peacefully negotiated to enable the unification of all the islands, until his death in 1819. Ships on the Pacific Northwest/China trade route depleted the Kingdom‘s ‘iliahi (sandalwood). In 1793, Kamehameha received the first gift of cattle from English Captain George Vancouver and ranching was to become a new industry. Though accounts vary, sometime between 1803–1805, an oku‘u (pestilence) resulted in 5,000–175,000 deaths. It may have been the Asiatic cholera, bubonic plague, yellow fever, dysentery, or typhoid fever (Schmitt, 1970). The first two whaling ships arrived in 1819 and the whaling industry flourished for four decades until the discovery of petroleum.\" (Office of Hawaiian Affairs, Research Division, Demography. (2017). Native Hawaiian Population Enumerations in Hawaiʻi. Honolulu, HI.)";
 
-const chart_paragraph_1850_1950 = "testing 2";
+const chart_paragraph_1850_1950 = "\"During the 49-year span from 1847–1896, the Hawaiian Government conducted 12 censuses." +
+"3 of which were considered failures that are not included in the (visualization)." +
+"In 1850, Hawaiians and Part Hawaiians constituted 98% of the population. The percentages continued to decline to 36% by 1896."
++ " Hawai'i became a Territory on April 30, 1900 with the passing of the Organic Act by the U.S. Congress. From 1900, Hawai'i was included in the U.S. decennial census.\"";
 
 const chart_paragraph_1960_2020 = "testing 3";
 
