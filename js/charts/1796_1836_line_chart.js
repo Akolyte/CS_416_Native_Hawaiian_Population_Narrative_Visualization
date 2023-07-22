@@ -115,7 +115,7 @@ async function init_1796_1836(svg_width, svg_height, start_year=1796, end_year=1
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("fill", "black")
-    .text("Population"); 
+    .text("Native Hawaiian Population"); 
 }
 
 function populateDropdown(dropDownId, data) {

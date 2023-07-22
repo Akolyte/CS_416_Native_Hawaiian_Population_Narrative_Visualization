@@ -58,7 +58,7 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
     // Create a scale for the y-axis
     const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, d => d.native_hawaiian_population)])
+    .domain([0, 300000])
     .range([chartHeight, 0]);
 
     // Create the line generator
