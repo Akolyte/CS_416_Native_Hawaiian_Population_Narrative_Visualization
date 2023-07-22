@@ -115,5 +115,26 @@ async function init_1796_1836(svg_width, svg_height, start_year=1796, end_year=1
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("fill", "black")
-    .text("Native Hawaiian Population"); 
+    .text("Native Hawaiian Population");
+
+    const annotations = [{
+        type: d3.annotationCalloutElbow,
+        connector: { end: "arrow" },
+        note: { 
+            label: "resulted in 5,000–175,000 deaths, spread through contact with foreigners",
+            title: "Oku‘u (pestilence)",
+            wrap: 300
+        },
+        x: xScale(1804) + margin.left,
+        y: yScale(210000) + margin.top,
+        dx: 127,
+        dy: -50,
+    }].map(function(d){ d.color = "#E8336D"; return d})
+
+      const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+
+    svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
 }

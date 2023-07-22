@@ -210,4 +210,29 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
     .attr("y", (d, i) => i * (squareSize + squareSpacing) + squareSize / 2)
     .attr("dy", "0.35em")
     .text(d => d.label);
+
+    // Add the horizontal line annotation
+    const annotations = [{
+        type: d3.annotationXYThreshold,
+        note: {
+            title: "Native Hawaiian Population in 1836:",
+            label: "100% Native Hawaiian population continues to trend downwards, while the number of Part-Hawaiian people begin to rise",
+            wrap: 250
+          },
+        subject: {
+            x1: xScale(1850) + margin.left,
+            x2: xScale(1950) + margin.left,
+        },
+        x: xScale(1880) + margin.left,
+        y: yScale(108579) + margin.top,
+        dy: -100,
+        dx: 162,
+    }].map(function(d){ d.color = "#E8336D"; return d})
+
+      const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+
+    svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
 }

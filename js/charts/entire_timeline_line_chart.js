@@ -144,5 +144,5 @@ async function init_entire_timeline(svg_width, svg_height, start_year=1778, end_
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("fill", "black")
-    .text("Native Hawaiian Population"); 
+    .text("Population"); 
 }

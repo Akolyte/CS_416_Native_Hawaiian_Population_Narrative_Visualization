@@ -115,5 +115,26 @@ async function init_1960_2020(svg_width, svg_height, start_year=1960, end_year=2
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("fill", "black")
-    .text("Native Hawaiian Population"); 
+    .text("Native Hawaiian Descendants Population"); 
+
+    const annotations = [{
+        type: d3.annotationCalloutElbow,
+        connector: { end: "arrow" },
+        note: { 
+            title: "Population begins to recover:",
+            label: "Higher fertility rates and marriage-out rate cited as main contributing factors (Goo, 2015)",
+            wrap: 300
+        },
+        x: xScale(1980) + margin.left,
+        y: yScale(115500) + margin.top,
+        dx: 127,
+        dy: 50,
+    }].map(function(d){ d.color = "#E8336D"; return d})
+
+      const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+
+    svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
 }
