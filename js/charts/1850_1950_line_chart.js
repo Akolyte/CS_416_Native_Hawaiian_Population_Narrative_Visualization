@@ -227,6 +227,21 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
         y: yScale(108579) + margin.top,
         dy: -100,
         dx: 162,
+    }, {
+        type: d3.annotationXYThreshold,
+        note: {
+            title: "US Census:",
+            label: "From 1900 onward Hawai'i was included in the U.S. Census",
+            wrap: 250
+          },
+        subject: {
+            y1: yScale(0) + margin.top,
+            y2: yScale(120000) + margin.top,
+        },
+        x: xScale(1900) + margin.left,
+        y: yScale(120000) + margin.top,
+        dy: -15,
+        dx: 35,
     }].map(function(d){ d.color = "#E8336D"; return d})
 
       const makeAnnotations = d3.annotation()
