@@ -1,7 +1,7 @@
 async function init_1796_1836(svg_width, svg_height, start_year=1796, end_year=1836, svg_id='#native-hawaiian-population-1796-1836') {
     const width = svg_width;
     const height = svg_height;
-    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 20, right: 100, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     const default_start_year = 1796;

@@ -1,7 +1,7 @@
 async function init_1960_2020(svg_width, svg_height, start_year=1960, end_year=2020, svg_id='#native-hawaiian-population-1960-2020') {
     const width = svg_width;
     const height = svg_height;
-    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 80, right: 100, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     const default_start_year = 1960;
@@ -74,7 +74,7 @@ async function init_1960_2020(svg_width, svg_height, start_year=1960, end_year=2
                 // Show the tooltip on mouseover
                 const tooltip = svg.append("g")
                 .attr("class", "tooltip")
-                .attr("transform", "translate(" + (xScale(d.year) + 10) + "," + (yScale(d.population) - 20) + ")");
+                .attr("transform", "translate(" + (xScale(d.year) + 10) + "," + (yScale(d.population) + 40) + ")");
 
                 tooltip.append("text")
                     .attr("y", 15)

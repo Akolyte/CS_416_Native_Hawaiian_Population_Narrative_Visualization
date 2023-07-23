@@ -1,7 +1,7 @@
 async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1950, svg_id='#native-hawaiian-population-1850-1950') {
     const width = svg_width;
     const height = svg_height;
-    const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+    const margin = { top: 20, right: 100, bottom: 40, left: 60 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
     const default_start_year = 1850;
@@ -116,7 +116,7 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
 
                 tooltip.append("text")
                     .attr("y", 30)
-                    .text("Native Hawaiian Population: " + d.native_hawaiian_population);
+                    .text("Population: " + d.native_hawaiian_population);
             })
             .on("mouseout", (d,i) => {
                 // Remove the tooltip on mouseout
@@ -145,7 +145,7 @@ async function init_1850_1950(svg_width, svg_height, start_year=1850, end_year=1
 
                 tooltip.append("text")
                     .attr("y", 30)
-                    .text("Part Hawaiian Population: " + d.part_hawaiian_population);
+                    .text("Population: " + d.part_hawaiian_population);
             })
             .on("mouseout", (d,i) => {
                 // Remove the tooltip on mouseout
