@@ -6,8 +6,9 @@ const chart_paragraph_1796_1836 = "\"It is reported that a census of Wainiha Val
 
 const chart_paragraph_1850_1950 = "\"During the 49-year span from 1847–1896, the Hawaiian Government conducted 12 censuses." 
 + "3 of which were considered failures that are not included in the (visualization)."
-+ "In 1850, Hawaiians and Part Hawaiians constituted 98% of the population. The percentages continued to decline to 36% by 1896."
-+ " Hawai'i became a Territory on April 30, 1900 with the passing of the Organic Act by the U.S. Congress. From 1900, Hawai'i was included in the U.S. decennial census.\" (Office of Hawaiian Affairs, Research Division, Demography. (2017). Native Hawaiian Population Enumerations in Hawaiʻi. Honolulu, HI.)";
++ "In 1850, Hawaiians and Part Hawaiians constituted 98% of the population. The percentages continued to decline to 36% by 1896. This was due in large part to disease." + 
+" Over the years, many infectious diseases and illnesses such as measles, chicken pox, polio and tuberculosis killed thousands of Hawaiians."
++ " After the previous government the Kingdom of Hawai'i was overthrown, it became a Territory on April 30, 1900 with the passing of the Organic Act by the U.S. Congress. From 1900, Hawai'i was included in the U.S. decennial census.\" (Office of Hawaiian Affairs, Research Division, Demography. (2017). Native Hawaiian Population Enumerations in Hawaiʻi. Honolulu, HI.)";
 
 const chart_paragraph_1960_2020 = "\"For the past several decades, since the 1980s, the Native Hawaiian population in the state and across the country has been surging, and growth is projected to continue."
 + " The state’s Native Hawaiian population, which includes people who are of more than one race, stands at 298,000. Nationwide, there are more than 560,000 Americans who claim Native Hawaiian race, according to 2013 census estimates."
