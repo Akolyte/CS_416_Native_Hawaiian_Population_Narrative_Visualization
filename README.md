@@ -1,6 +1,6 @@
 # CS_416_Native_Hawaiian_Population_Narrative_Visualization
 
-## This visualization was created as the final project for CS416 Data Visualization at UIUC. The link to the actual visualization is [here](https://akolyte.github.io/CS_416_Native_Hawaiian_Population_Narrative_Visualization/){:target="_blank"}. It was created using vanilla JavaScript, D3, and the D3-annotation library. 
+## This visualization was created as the final project for CS416 Data Visualization at UIUC. The link to the actual visualization is [here](https://akolyte.github.io/CS_416_Native_Hawaiian_Population_Narrative_Visualization/). It was created using vanilla JavaScript, D3, and the D3-annotation library. 
 
 ### Messaging
 The message that I am trying to communicate with the narrative visualization is the trajectory of the Native Hawaiian population in Hawai’i over time. I was inspired to do this due to a trip I took recently there. Prior to European contact the native population was massive, was devastated by disease, and then slowly recovered over time. I wanted to communicate those events to others through visualization. 
